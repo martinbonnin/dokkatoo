@@ -43,6 +43,7 @@ examples/**                                                       linguist-docum
 examples/*/dokka                                                  linguist-vendored
 modules/dokkatoo-plugin-integration-tests/projects/**dokka/       linguist-vendored
 modules/dokkatoo-plugin-integration-tests/projects/**dokkatoo/    linguist-documentation
+modules/dokka-plugin-base                                         linguist-vendored
 
 # Exclude files from exporting
 

@@ -72,7 +72,7 @@ abstract class DokkatooFormatPlugin @Inject constructor(
       addProvider(publication.configurationNames.dokkaPluginsClasspath, dependency)
 
     /** Add a dependency to the Dokka plugins classpath */
-    fun DependencyHandler.dokkaPlugin(dependency: String) {
+    fun DependencyHandler.dokkaPlugin(dependency: Any) {
       add(publication.configurationNames.dokkaPluginsClasspath, dependency)
     }
 
@@ -82,7 +82,7 @@ abstract class DokkatooFormatPlugin @Inject constructor(
     }
 
     /** Add a dependency to the Dokka Generator classpath */
-    fun DependencyHandler.dokkaGenerator(dependency: String) {
+    fun DependencyHandler.dokkaGenerator(dependency: Any) {
       add(publication.configurationNames.dokkaGeneratorClasspath, dependency)
     }
 
@@ -97,6 +97,12 @@ abstract class DokkatooFormatPlugin @Inject constructor(
         dokkaPlugin(dokka("dokka-analysis"))
         dokkaPlugin(dokka("templating-plugin"))
         dokkaPlugin(dokka("dokka-base"))
+//        add(
+//          publication.configurationNames.dokkaPluginsClasspath,
+//          project.files(
+//            "../externals/dokka-plugin-base/build/libs/dokka-plugin-base-0.0.2-SNAPSHOT.jar"
+//          )
+//        )
         dokkaPlugin(dokka("kotlin-analysis-intellij"))
         dokkaPlugin(dokka("kotlin-analysis-compiler"))
 //        dokkaPlugin(dokka("all-modules-page-plugin"))

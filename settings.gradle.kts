@@ -40,6 +40,8 @@ include(
   ":modules:dokkatoo-plugin-integration-tests",
 
   ":examples",
+
+  ":externals:dokka-plugin-base",
 )
 
 
