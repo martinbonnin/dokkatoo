@@ -30,6 +30,7 @@ class MultiModuleFunctionalTest : FunSpec({
         "clean",
         ":dokkatooGenerate",
         "--stacktrace",
+        "--no-daemon",
       )
       .forwardOutput()
       .build {
@@ -144,6 +145,7 @@ class MultiModuleFunctionalTest : FunSpec({
           //"clean",
           ":dokkatooGenerate",
           "--stacktrace",
+          "--no-daemon",
           "--build-cache",
         )
         .forwardOutput()
@@ -169,6 +171,7 @@ class MultiModuleFunctionalTest : FunSpec({
           .withArguments(
             ":dokkatooGenerate",
             "--stacktrace",
+            "--no-daemon",
             "--build-cache",
           )
           .forwardOutput()
@@ -205,6 +208,7 @@ class MultiModuleFunctionalTest : FunSpec({
           //"clean",
           ":dokkatooGenerate",
           "--stacktrace",
+          "--no-daemon",
           "--no-build-cache",
           "--configuration-cache",
         )
@@ -244,6 +248,7 @@ class MultiModuleFunctionalTest : FunSpec({
             //"clean",
             ":dokkatooGeneratePublicationHtml",
             "--stacktrace",
+            "--no-daemon",
             "--build-cache",
           )
           .forwardOutput()
@@ -275,6 +280,7 @@ class MultiModuleFunctionalTest : FunSpec({
             .withArguments(
               ":dokkatooGeneratePublicationHtml",
               "--stacktrace",
+              "--no-daemon",
               "--build-cache",
             )
             .forwardOutput()
@@ -330,6 +336,7 @@ class MultiModuleFunctionalTest : FunSpec({
               .withArguments(
                 ":dokkatooGeneratePublicationHtml",
                 "--stacktrace",
+                "--no-daemon",
                 "--info",
                 "--build-cache",
               )
