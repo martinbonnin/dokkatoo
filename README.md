@@ -90,8 +90,8 @@ dokkatoo {
   moduleName.set("Basic Project")
   dokkatooSourceSets.configureEach {
     documentedVisibilities(
-      DokkaConfiguration.Visibility.PUBLIC,
-      DokkaConfiguration.Visibility.PROTECTED,
+      VisibilityModifier.PUBLIC,
+      VisibilityModifier.PROTECTED,
     )
     suppressedFiles.from(file("src/main/kotlin/it/suppressedByPath"))
     perPackageOption {
@@ -108,7 +108,7 @@ dokkatoo {
   dokkatooPublications.configureEach {
     suppressObviousFunctions.set(true)
     pluginsConfiguration.create("org.jetbrains.dokka.base.DokkaBase") {
-      serializationFormat.set(DokkaConfiguration.SerializationFormat.JSON)
+      serializationFormat.set(DokkaPluginConfigurationSpec.EncodedFormat.JSON)
       values.set(
         """
           { 
@@ -204,7 +204,14 @@ pluginManagement {
     mavenCentral()
 
     // add the Dokkatoo snapshot repository
-    maven("https://raw.githubusercontent.com/adamko-dev/dokkatoo/artifacts/m2/")
+    maven("https://raw.githubusercontent.com/adamko-dev/dokkatoo/artifacts/m2/") {
+      name = "Dokkatoo Snapshots"
+      // only include Dokkatoo snapshots
+      mavenContent {
+        includeGroup("dev.adamko.dokkatoo")
+        snapshotsOnly()
+      }
+    }
   }
 }
 ```
